@@ -9,7 +9,10 @@ class FileStorage:
     __objects = {}
 
     def all(self, cls=None):
-        """Returns a dictionary of objects"""
+        """returns a dictionary
+        Return:
+            Returns a dictionary of __objects
+        """
         dic = {}
         if cls:
             dictionary = self.__objects
