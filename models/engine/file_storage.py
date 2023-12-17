@@ -75,7 +75,7 @@ class FileStorage:
         """
         if obj:
             key = "{}.{}".format(type(obj).__name__, obj.id)
-            del self.__object[key]
+            del self.__objectskey]
 
     def close(self):
         """
