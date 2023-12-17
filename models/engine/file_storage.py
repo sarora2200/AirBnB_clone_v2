@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """File storage class for AirBnB"""
 import json
+import models
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -48,14 +49,6 @@ class FileStorage:
 
     def reload(self):
         """Loads storage dictionary from file"""
-        from models.base_model import BaseModel
-        from models.user import User
-        from models.place import Place
-        from models.state import State
-        from models.city import City
-        from models.amenity import Amenity
-        from models.review import Review
-
         classes = {
                     'BaseModel': BaseModel, 'User': User, 'Place': Place,
                     'State': State, 'City': City, 'Amenity': Amenity,
@@ -74,8 +67,9 @@ class FileStorage:
         """ delete an existing element
         """
         if obj:
-            key = "{}.{}".format(type(obj).__name__, obj.id)
-            del self.__objects[key]
+            key = obj.__class__.__name__ + '.' + obj.id
+            if key in self.__objects:
+                del self.__objects[key]
 
     def close(self):
         """
