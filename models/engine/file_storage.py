@@ -17,7 +17,7 @@ class FileStorage:
     __objects = {}
 
     def all(self, cls=None):
-        """Returns a dictionary of models currently in the storage"""
+        """Returns a dictionary of models"""
         if not cls:
             return FileStorage.__objects
         else:
@@ -54,7 +54,7 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """Delete obj from __objects"""
+        """Delete obj"""
         if obj:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             self.__objects.pop(key, None)
