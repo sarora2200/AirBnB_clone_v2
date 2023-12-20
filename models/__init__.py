@@ -13,8 +13,8 @@ from models.review import Review
 from os import getenv
 
 
-storage = DBStorage() if os.getenv(
-    'HBNB_TYPE_STORAGE') == 'db' else FileStorage()
-"""A unique FileStorage/DBStorage instance for all models.
-"""
+if getenv("HBNB_TYPE_STORAGE") == "db":
+    storage = DBStorage()
+else:
+    storage = FileStorage()
 storage.reload()
