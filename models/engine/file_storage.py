@@ -16,9 +16,6 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-    def __init__(self):
-        """Initializes a FileStorage instance"""
-
     def all(self, cls=None):
         """Returns a dictionary of models"""
         if not cls:
